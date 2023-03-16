@@ -1,9 +1,10 @@
 {
 	"name" : "zef-dev/zef-mini",
 	"type" : "library",
-	"description" : "NFT API",
+	"description" : "Mini PHP framework",
 	"homepage" : "https://github.com/zef-dev/zef-mini",
     "version": "0.1.0",
+    "license" : "MIT",
 	"require" : {
 		"php" : "^7.2.5",
 		"psr/log" : "^1.1.0",
