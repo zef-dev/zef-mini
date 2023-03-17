@@ -3,6 +3,10 @@
 # ZEF Mini framework
 
 
+### 0.1.3 Gzip encoder
+
+* add gzip encoder middleware
+
 ### 0.1.2 Check for upgrades middleware
 
 * add upgrade manager interface
