@@ -6,6 +6,7 @@
 ### 0.1.3 Gzip encoder
 
 * add gzip encoder middleware
+* add marshalling infrastructure
 
 ### 0.1.2 Check for upgrades middleware
 
