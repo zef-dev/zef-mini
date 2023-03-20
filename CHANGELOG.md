@@ -2,6 +2,9 @@
 
 # ZEF Mini framework
 
+### 0.1.4 Auth infrstructure
+
+* add auth middleware and service
 
 ### 0.1.3 Gzip encoder
 
