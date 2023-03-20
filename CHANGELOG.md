@@ -5,6 +5,7 @@
 ### 0.1.4 Auth infrstructure
 
 * add auth middleware and service
+* add marsheller service as interface
 
 ### 0.1.3 Gzip encoder
 
