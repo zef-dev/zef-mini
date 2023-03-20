@@ -3,9 +3,16 @@
 namespace Zef\Mini;
 
 use Psr\Http\Message\ServerRequestInterface;
+use Psr\Log\LoggerInterface;
 
 class SimpleAuthHeaderService implements IAuthService
 {
+    
+    /**
+     * @var LoggerInterface
+     */
+    private $_logger;
+    
     /**
      * @var string
      */
@@ -16,7 +23,8 @@ class SimpleAuthHeaderService implements IAuthService
      */
     private $_allowed = [];
     
-    public function __construct( $headerName, $allowed) {
+    public function __construct( $logger, $headerName, $allowed) {
+        $this->_logger = $logger;
         $this->_headerName = $headerName;
         $this->_allowed = $allowed;
     }
@@ -25,6 +33,11 @@ class SimpleAuthHeaderService implements IAuthService
     public function isAuthenticated( ServerRequestInterface $request)
     {
         $auth_token =   $request->getHeader( $this->_headerName);
+        
+        if ( !empty( $auth_token)) {
+            $auth_token =   array_shift( $auth_token);
+        }
+        
         if ( $auth_token && in_array( $auth_token, $this->_allowed)) {
             return true;
         }

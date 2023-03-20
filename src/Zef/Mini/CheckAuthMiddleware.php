@@ -34,11 +34,9 @@ class CheckAuthMiddleware implements \Psr\Http\Server\MiddlewareInterface
     
     public function process( ServerRequestInterface $request, RequestHandlerInterface $handler) : ResponseInterface
     {
-        try {
-            $allowed        =   $this->_authService->isAuthenticated( $request);
-            $this->_logger->info( 'Request is authenticated.');
-        } catch ( NotFoundException $e) {
-            $allowed  =   false;
+        $allowed        =   $this->_authService->isAuthenticated( $request);
+        
+        if ( !$allowed) {
             if ( $handler instanceof IAuthAwareHandler) {
                 /* @var IAuthAwareHandler $handler */
                 if ( $handler->allowNotAuthenticated( $request)) {
