@@ -2,7 +2,7 @@
 
 namespace Zef\Mini;
 
-class MarshallerService
+class MarshallerService implements IMarshallerService
 {
     /**
      * @var IMarshaller[]
